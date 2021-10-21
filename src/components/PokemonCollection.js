@@ -2,10 +2,13 @@ import React from "react";
 import PokemonCard from "./PokemonCard";
 import { Card } from "semantic-ui-react";
 
-function PokemonCollection() {
+function PokemonCollection({displayedPokemon}) {
+  console.log("PokemonC");
+  const pokemonCardsList = displayedPokemon.map((pokemon)=><PokemonCard key={pokemon.id} front={pokemon.sprites.front} back={pokemon.sprites.back} name={pokemon.name} hp={pokemon.hp}/>)
+  
   return (
     <Card.Group itemsPerRow={6}>
-      <h1>Hello From Pokemon Collection</h1>
+      {pokemonCardsList}
     </Card.Group>
   );
 }
